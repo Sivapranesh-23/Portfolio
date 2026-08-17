@@ -4,7 +4,7 @@ A modern, highly visual, and interactive portfolio website showcasing my enginee
 
 ## 🚀 Live Demo
 You can view the live hosted version of this portfolio here:
-- **Portfolio Website**: [Live Link / GitHub Pages Link]
+- **Portfolio Website**: [https://siva-pranesh-portfolio.netlify.app/](https://siva-pranesh-portfolio.netlify.app/)
 - **Featured Project (ShopEase)**: [https://shopease-bice.vercel.app/](https://shopease-bice.vercel.app/)
 
 ---

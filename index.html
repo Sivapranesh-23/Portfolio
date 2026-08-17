@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Pranesh.DEV | Web Developer Portfolio</title>
+    <title>Pranesh | Web Developer Portfolio</title>
     
     <!-- Apply theme before paint to avoid flash of wrong theme -->
     <script>
@@ -191,8 +191,8 @@
     <header class="bg-background/80 dark:bg-background/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline-variant">
         <div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
             <div class="flex items-center gap-xs">
-                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">terminal</span>
-                <span class="font-display-lg-mobile text-display-lg-mobile font-bold text-on-surface dark:text-on-surface text-[24px]">Pranesh.DEV</span>
+                <!-- <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">terminal</span> -->
+                <span class="font-display-lg-mobile text-display-lg-mobile font-bold text-on-surface dark:text-on-surface text-[15px]">Pranesh</span>
             </div>
             <nav class="hidden md:flex items-center gap-lg">
                 <a class="text-secondary font-bold border-b-2 border-secondary font-label-caps text-label-caps" href="#">Home</a>
@@ -209,7 +209,7 @@
                 </button>
                 <a href="Siva_Pranesh_CV.pdf" download class="bg-secondary text-white dark:text-slate-955 px-sm py-xs font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-opacity flex items-center gap-xs font-bold shadow-sm">
                     <span class="material-symbols-outlined text-[18px]">download</span>
-                    Resume
+                    CV
                 </a>
             </div>
         </div>
@@ -1221,26 +1221,27 @@
 
                 <!-- Form column -->
                 <div class="lg:col-span-7">
-                    <form class="bg-surface-container/60 border border-outline-variant rounded-xl overflow-hidden shadow-2xl backdrop-blur-md relative group" onsubmit="handleContactSubmit(event, this);">
+                    <form name="contact" action="https://api.web3forms.com/submit" method="POST" class="bg-surface-container/60 border border-outline-variant rounded-xl overflow-hidden shadow-2xl backdrop-blur-md relative group" onsubmit="handleContactSubmit(event, this);">
+                        <input type="hidden" name="access_key" value="e6864e63-c116-4d4c-a6e9-861ae4a55289" />
                         <div class="h-[3px] w-full bg-gradient-to-r from-transparent via-secondary/30 to-transparent group-hover:via-secondary transition-all duration-300 absolute top-0 left-0"></div>
                         <div class="p-lg space-y-md">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
                                 <div class="space-y-xs">
                                     <label class="font-label-caps text-label-caps text-on-surface-variant block">Full Name</label>
-                                    <input class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="Your Name" type="text" required/>
+                                    <input name="name" class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="Your Name" type="text" required/>
                                 </div>
                                 <div class="space-y-xs">
                                     <label class="font-label-caps text-label-caps text-on-surface-variant block">Email Address</label>
-                                    <input class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="yourname@example.com" type="email" required/>
+                                    <input name="email" class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="yourname@example.com" type="email" required/>
                                 </div>
                             </div>
                             <div class="space-y-xs">
                                 <label class="font-label-caps text-label-caps text-on-surface-variant block">Message Subject</label>
-                                <input class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="Inquiry about..." type="text" required/>
+                                <input name="subject" class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="Inquiry about..." type="text" required/>
                             </div>
                             <div class="space-y-xs">
                                 <label class="font-label-caps text-label-caps text-on-surface-variant block">Message Content</label>
-                                <textarea class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="How can I help you today?" rows="5" required></textarea>
+                                <textarea name="message" class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary/20 text-on-surface transition-all text-sm" placeholder="How can I help you today?" rows="5" required></textarea>
                             </div>
                             <button class="w-full py-sm bg-secondary text-white dark:text-slate-955 font-bold font-label-caps text-label-caps rounded-lg hover:opacity-95 active:scale-95 transition-all shadow-[0px_4px_15px_rgba(59,130,246,0.15)] dark:shadow-[0px_4px_15px_rgba(0,242,254,0.2)]" type="submit">TRANSMIT MESSAGE</button>
 
@@ -1264,6 +1265,14 @@
         <script>
         function handleContactSubmit(event, form) {
             event.preventDefault();
+
+            // Validate that the key has been provided
+            const keyInput = form.querySelector('input[name="access_key"]');
+            if (keyInput && keyInput.value === 'YOUR_ACCESS_KEY_HERE') {
+                alert('Please configure your Web3Forms Access Key in index.html (Line 1225) to test form email delivery! (It takes 5 seconds to get a free key from web3forms.com)');
+                return;
+            }
+
             const consoleBox = document.getElementById('contact-console');
             const line1 = document.getElementById('console-line-1');
             const line2 = document.getElementById('console-line-2');
@@ -1280,7 +1289,30 @@
             line2.classList.add('opacity-0');
             line3.classList.add('opacity-0');
             
-            // Simulate pipeline logging
+            // Post form data to Web3Forms API endpoint via JSON
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let jsonRes = await response.json();
+                if (response.status === 200) {
+                    console.log("Form successfully delivered via Web3Forms:", jsonRes);
+                } else {
+                    console.error("Form transmission failed:", jsonRes.message);
+                }
+            })
+            .catch(err => console.error("Form transmission network error:", err));
+
+            // Simulate terminal transmission interface
             setTimeout(() => {
                 line1.textContent = '[INFO] Connection established. Validating payload...';
                 line1.classList.remove('opacity-0');
